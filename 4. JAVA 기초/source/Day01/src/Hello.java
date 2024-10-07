@@ -4,3 +4,4 @@ public class Hello {
         System.out.println("Hello, Java!");
     }
 }
+// 테스트용 주석
