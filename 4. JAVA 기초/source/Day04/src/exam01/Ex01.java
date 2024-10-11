@@ -26,7 +26,6 @@ public class Ex01 {
      */
 
     static int add(int num1, int num2) { // 함수 지역 변수
-        int result = num1 + num2;
-        return result;
+        return num1 + num2;
     }
 }
