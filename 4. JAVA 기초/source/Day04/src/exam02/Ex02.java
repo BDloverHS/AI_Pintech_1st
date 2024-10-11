@@ -2,7 +2,7 @@ package exam02;
 
 public class Ex02 {
     public static void main(String[] args) {
-        // class 이름으로 함수 이름이
+        // class 이름으로 함수 이름
         Student s1 =  new Student(); // 생성자 메서드(함수)
         s1.ShowInfo();
 
