@@ -1,7 +1,5 @@
 package exam01;
 
-import exam02.Student;
-
 public class Ex02 {
     public static void main(String[] args) {
 
@@ -11,6 +9,4 @@ public class Ex02 {
     static void method1() {
         System.out.println("반환값이 없는 함수");
     }
-
-
 }
