@@ -13,15 +13,3 @@ public class StackMemory1 {
         return num1 + num2;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
