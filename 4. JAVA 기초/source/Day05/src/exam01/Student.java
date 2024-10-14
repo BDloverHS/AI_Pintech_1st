@@ -16,4 +16,19 @@ public class Student {
     void ShowInfo() {
         System.out.printf("id=%d, name=%s, major:%s%n", id, name, major);
     }
+
+    static void staticMethod() {
+        // 객체를 생성하지 않기 때문에 this라는 지역 변수가 존재하지 않는다.
+        System.out.println("정적 메서드!");
+        // this.name = "이이름"; // 불가능
+        id = 1000; // id는 정적 변수이기 때문에 사용 가능하다.
+
+        // this.showInfo() -> 접근 불가
+        // showInfo() -> 접근 불가
+        staticMethod2(); // 정적 메서드이기 때문에 사용 가능
+    }
+
+    static void staticMethod2() {
+
+    }
 }
