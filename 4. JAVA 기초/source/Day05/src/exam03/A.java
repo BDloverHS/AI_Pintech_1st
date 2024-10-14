@@ -8,5 +8,6 @@ public class A {
     public void method() { // 클래스 내부 - 클래스 내에 정의된 메서드 정의 내부
         num3 = 100;
         System.out.println(num3);
+        
     }
 }

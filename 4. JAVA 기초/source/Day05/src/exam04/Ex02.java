@@ -13,5 +13,6 @@ public class Ex02 {
         B b = new B(); // exam03 안에 있는 B 클래스 사용
         // a.num1; -> 접근 불가(default이기 때문에)
         a.num2 = 20;
+
     }
 }
