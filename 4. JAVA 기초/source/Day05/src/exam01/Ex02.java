@@ -9,11 +9,13 @@ public class Ex02 {
         s1.ShowInfo();
 
         Student s2 = new Student();
-        s2.id = 1001; // 지양
+        s2.id = 1001; // 지양 정적 변수인지 바로 알아보기 힘듦
         s2.name = "이이름";
         s2.major = "영어";
         s2.ShowInfo();
 
         s1.ShowInfo();
+
+        s2.staticMethod(); // 지양 정적 메서드인지 바로 알아보기 힘듦
     }
 }
