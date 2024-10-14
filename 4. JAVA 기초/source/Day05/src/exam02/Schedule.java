@@ -6,6 +6,6 @@ public class Schedule {
     int day;
 
     void showDate() {
-
+        System.out.printf("year=%d, month=%d, day=%d", year, month, day);
     }
 }
