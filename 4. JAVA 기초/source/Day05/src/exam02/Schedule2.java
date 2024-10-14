@@ -15,6 +15,7 @@ public class Schedule2 {
 //    }
 
     public Schedule2() {
+        // this는 항상 첫줄에 와야한다.
         this(2024,10,14);
         /*
         year = 2024;

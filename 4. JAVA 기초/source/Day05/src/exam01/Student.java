@@ -6,7 +6,7 @@ public class Student {
     }
 
     // 아직 변수가 아님. 객체를 만들면 이러한 변수를 만들겠다고 정의한 것.
-    int id; // 학번
+    static int id; // 학번
     String name;
     String major;
 
