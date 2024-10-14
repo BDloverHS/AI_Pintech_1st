@@ -6,6 +6,5 @@ public class Ex01 {
         a.num1 = 10; // 클래스 외부
         a.num2 = 20; // 클래스 외부
         a.method();
-        // ddd
     }
 }
