@@ -10,8 +10,18 @@ public class Ex02 {
         */
         Animal[] animals = {new Tiger(), new Bird(), new Human()};
 
-        for(Animal animal : animals) {
+        for(Animal animal : animals) { // 업 캐스팅
             animal.move();
+            if (animal instanceof Human) {
+                Human human = (Human) animal; // 다운 캐스팅
+                human.reading();
+            } else if (animal instanceof Bird bird) {
+                bird.singing();
+            } else if (animal instanceof Tiger tiger) {
+                tiger.hunting();
+            } else {
+                System.out.println("어디에도 포함되지 않음");
+            }
         }
     }
 }

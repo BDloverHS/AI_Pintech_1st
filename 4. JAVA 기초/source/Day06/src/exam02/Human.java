@@ -6,6 +6,10 @@ public class Human extends Animal {
         System.out.println("두 발로 직립보행");
     }
 
+    public void reading() {
+        System.out.println("독서한다.");
+    }
+
     /*
     @Override
     public void move() {
