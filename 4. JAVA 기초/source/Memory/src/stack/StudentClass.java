@@ -8,5 +8,12 @@ public class StudentClass {
         s1.major = "힙 영역 메모리";
         s1.ShowInfo();
     }
-
 }
+
+
+
+
+
+
+
+
