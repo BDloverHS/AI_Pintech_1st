@@ -1,7 +1,5 @@
 package exam04;
 
-import exam03.Grape;
-
 public class Ex01 {
     public static void main(String[] args) {
         // Box<Apple> appleBox = new Box<Apple>(); // 타입을 Apple로 명시
