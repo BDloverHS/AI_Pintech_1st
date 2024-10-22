@@ -13,6 +13,10 @@ public class Person {
         this.name = name;
     }
 
+    public void TestMethod() {
+        System.out.println("테스트 메서드");
+    }
+
     public int getAge() {
         return age;
     }

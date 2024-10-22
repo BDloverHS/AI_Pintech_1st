@@ -20,5 +20,8 @@ public class Ex03 {
         System.out.println(age);
         System.out.println(obj);
 
+        Method m3 = cls.getDeclaredMethod("TestMethod");
+        Object r3 = m3.invoke(obj);
+
     }
 }
