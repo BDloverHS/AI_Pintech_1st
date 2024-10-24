@@ -17,6 +17,8 @@ import java.util.List;
  *  - 상품목록에서 상품 번호를 입력하면 상품 상세보기로 이동
  *
  */
+
+
 public class ProductListController extends Controller implements TypeValidator, RequiredValidator {
     public ProductListController() {
         setInputProcess(input -> {
@@ -25,6 +27,7 @@ public class ProductListController extends Controller implements TypeValidator, 
                 return;
             }
 
+            // 숫자에 대한 유효성 검사
             if (!isNumber(input)) {
                 System.out.println("상품 번호는 숫자만 입력하세요.");
                 return;
@@ -36,14 +39,17 @@ public class ProductListController extends Controller implements TypeValidator, 
            Utils.loadController(ProductViewController.class, new Model(Long.parseLong(input)));
 
 
+
         });
     }
 
     @Override
     protected String getPromptText() {
+        // Controller - getPromptText()를 재정의
         return "조회할 상품번호를 입력하세요(메인메뉴: M, 종료: Q):";
     }
 
+    // 상품 목록을 조회하는 서비스
     @Override
     public void view() {
         ProductInfoService service = BeanContainer.getBean(ProductInfoService.class);

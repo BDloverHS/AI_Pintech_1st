@@ -17,7 +17,9 @@ public class ProductList implements Template {
     private List<Product> items;
 
     @Override
+    // 필수 데이터
     public void print() {
+        // 상품 목록 데이터 - view 출력
         System.out.println("상품목록");
         Utils.drawLine('-', 30);
         if (items != null && !items.isEmpty()) {

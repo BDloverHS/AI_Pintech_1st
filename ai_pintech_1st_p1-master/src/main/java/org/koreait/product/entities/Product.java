@@ -1,3 +1,4 @@
+// entities : 데이터 한 개 한 개를 의미
 package org.koreait.product.entities;
 
 import java.io.Serializable;
@@ -7,6 +8,8 @@ import java.time.LocalDateTime;
  * 상품 정보를 담는 데이터 클래스 정의
  *
  */
+
+
 public class Product implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -70,12 +73,12 @@ public class Product implements Serializable {
     @Override
     public String toString() {
         return "Product{" +
-                "seq=" + seq +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", regDt=" + regDt +
-                ", modDt=" + modDt +
-                '}';
+               "seq=" + seq +
+               ", name='" + name + '\'' +
+               ", price=" + price +
+               ", stock=" + stock +
+               ", regDt=" + regDt +
+               ", modDt=" + modDt +
+               '}';
     }
 }

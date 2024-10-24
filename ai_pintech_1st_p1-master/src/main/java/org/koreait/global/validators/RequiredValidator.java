@@ -11,6 +11,8 @@ public interface RequiredValidator {
      *
      * @param str : 문자열
      */
+
+    // 값이 있는지 없는지 체크
     default boolean check(String str) {
         return str != null && !str.isBlank();
     }

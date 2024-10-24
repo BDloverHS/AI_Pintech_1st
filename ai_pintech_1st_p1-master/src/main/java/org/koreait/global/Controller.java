@@ -18,7 +18,10 @@ import java.util.function.Consumer;
  *          2) view() : 각 컨트롤러마다 다르게 출력될 부분 정의 - 상속 받은 클래스가 정의
  *          3) prompt() : 사용자의 입력을 받는 부분, 기본 화면은 메뉴 선택이지만 각 컨트롤러에서 새롭게 정의하면 해당 메뉴에 맞는 입력으로 새롭게 정의 가능
  */
+
+// 추상 클래스. 모든 클래스는 얘의 하위 클래스
 public abstract class Controller {
+
 
     private Object data; // 컨트롤러 전환시 전달할 데이터
 
@@ -39,6 +42,7 @@ public abstract class Controller {
         Utils.drawLine('-', 30);
     }
 
+    // 컨트롤러마다 다르게 정의되는 녀석들(하위 클래스가 구상해야함)
     public abstract void view(); // 화면 구성
 
     /**
@@ -47,6 +51,9 @@ public abstract class Controller {
      *  - 그렇지 않다면 기본 문구 - 메뉴를 선택하세요(종료:Q): 출력 된다.
      * @return
      */
+
+    // 문구가 바뀔 수 있음
+    // protected는 상속과 관련함.
     protected String getPromptText() {
         return "메뉴를 선택하세요(종료:Q):";
     }
@@ -93,6 +100,7 @@ public abstract class Controller {
      *
      */
     protected void process(String input) {
+        // inputProcess -> 인터페이스
         if (inputProcess != null) {
             inputProcess.accept(input);
         }
@@ -103,11 +111,14 @@ public abstract class Controller {
      * - 사용자에게 입력을 받는 문구는 각 컨트롤러마다 달라질 수 있으므로
      * - getPromptText()를 하위 클래스에서 재정의하여 변경할 수 있습니다. 변경하지 않는다면 기본 메뉴 선택 문구로 출력이 됩니다.
      */
+
     public void prompt() {
         Utils.drawLine('-', 30);
+        // 상황에 따라 다른 문자열이 나올 수 있도록 하는 함수
         System.out.print(getPromptText());
 
         if (promptProcess == null) {
+            // 입력을 받음.
             String input = Router.sc.nextLine();
 
             // 입력 데이터 중 Q(대소문자 구분 없음)가 유입 되면 콘솔 프로그램 종료
@@ -127,6 +138,7 @@ public abstract class Controller {
             process(input); // 입력 처리
 
         } else {
+            // null이 아닐 경우 정의함
             promptProcess.run();
         }
     }
@@ -142,7 +154,12 @@ public abstract class Controller {
      * 이렇게 실행 절차를 고정해 놓은 함수를  템플릿 메서드라고 하며, 주로 추상 클래스에서 구현을 하므로 이를
      * 추상 템플릿 메서드 패턴이라고 합니다.
      */
+
+    // 모든 컨트롤러는 run()을 호출
+    // 추상 템플릿 메서드 패턴
     public final void run() throws Exception {
+        // 순서를 바꾸지 못함.
+        // final로 메서드 재정의 안 되도록 -> 모든 컨트롤러가 이 절차를 거치기 위함.
         common();
         view();
         prompt();

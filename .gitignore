@@ -1,4 +1,5 @@
 dbeaver/
-
 .idea/
 out/
+/gradle-*
+/apache-tomcat-*

@@ -8,8 +8,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 public class Router {
+    // 사용자에게 입력 받기
+    // 정적인 이유 - 매번 Scanner를 만들 필요없게 하기 위해.
     public static final Scanner sc;
 
+    // 스캐너를 사용하기 위함
     static {
         sc = new Scanner(System.in);
     }
@@ -18,11 +21,15 @@ public class Router {
      * 컨트롤러 라우터 실행
      *
      */
+
+    // 처음 실행됨
     public void execute() {
+        // 무한 반복
         while(true) {
             try {
-                Utils.loadController(MainController.class);
-            } catch (Exception e) {
+                // 시작 시 메인 컨트롤러가 나올 수 있도록 해줌
+                Utils.loadController(MainController.class); // 컨트롤러 변경
+            } catch (Exception e) { // 예외처리
                 // 예외 공통 출력 처리 S
                 int code = 500; // 우리가 정의한 예외가 아니라면 500으로 예외 코드 고정
 
@@ -35,7 +42,7 @@ public class Router {
                    }
                 }
                 // 그 외
-                if (e instanceof CommonException commonException) {
+                if (e instanceof CommonException commonException) { // 다형성을 이용한 예외처리
                     code = commonException.getCode();
                 }
 

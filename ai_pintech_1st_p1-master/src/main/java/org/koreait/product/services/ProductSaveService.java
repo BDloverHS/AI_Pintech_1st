@@ -12,8 +12,6 @@ import java.util.Map;
  *
  */
 public class ProductSaveService {
-
-
     /**
      * 사용자가 입력한 요청 데이터로 상품 정보(Product) 등록 및 수정 처리
      * 요청 데이터 중에서 등록번호가 있다면 수정, 없다면 추가로 판단
@@ -27,12 +25,15 @@ public class ProductSaveService {
         if (seq < 1L) seq = System.currentTimeMillis();
 
         if (data.containsKey(seq)) { // 상품 정보 수정
+            // 수정 시간
             item.setModDt(LocalDateTime.now());
         } else { // 상품 정보 등록
             item.setSeq(seq);
+            // 등록 시간
             item.setRegDt(LocalDateTime.now());
         }
 
+        // 상품이 있다면 수정 / 없었다면 등록
         data.put(seq, item);
 
         try (FileOutputStream fos = new FileOutputStream(file);

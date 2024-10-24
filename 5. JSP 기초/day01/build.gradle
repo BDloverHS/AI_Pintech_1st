@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.koreait'
+// 배포 파일을 만들 때 기준이 됨.
+// gradle jar 실행 시 파일 이름 : day01-1.0-SNAPSHOT.jar
+version = '1.0-SNAPSHOT'
+
+// 람다식 함수
+repositories {
+    mavenCentral()
+}
+
+//
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    // 테스트에 사용하는 라이브러리 추가
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+
+    // 하나를 입력했지만 의존성의 의존성을 다 찾아서 자동으로 다운받아 연결시켜줌.
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
