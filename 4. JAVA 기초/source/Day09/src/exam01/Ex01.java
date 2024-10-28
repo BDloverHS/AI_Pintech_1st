@@ -9,39 +9,35 @@ public class Ex01 {
         Class<Person> cls = Person.class;
 
         System.out.println("----- 생성자 -----");
-        /*
-        for (Constructor constructor : cls.getConstructors()){
-            System.out.println(constructor);
-        }
-        */
-
-        for (Constructor constructor : cls.getDeclaredConstructors()) {
-            System.out.println(constructor);
+        for (Constructor constructor1 : cls.getConstructors()) {
+            System.out.println(constructor1);
         }
 
+        System.out.println("----- Declared 생성자 -----");
+        for (Constructor constructor2 : cls.getDeclaredConstructors()){
+            System.out.println(constructor2);
+        }
 
         System.out.println("----- 멤버 변수 -----");
-        /*
-        for (Field field : cls.getFields()) {
-            System.out.println(field);
+        for (Field field1 : cls.getFields()) {
+            System.out.println(field1);
         }
-        */
 
-        for (Field field : cls.getDeclaredFields()) {
-            System.out.println(field);
+        System.out.println("----- Declared 멤버 변수 -----");
+        for (Field field2 : cls.getDeclaredFields()) {
+            System.out.println(field2);
         }
 
 
 
         System.out.println("----- 메서드 -----");
-        /*
-        for (Method method : cls.getMethods()) {
-            System.out.println(method);
+        for (Method method1 : cls.getMethods()) {
+            System.out.println(method1);
         }
-        */
 
-        for (Method method : cls.getDeclaredMethods()) {
-            System.out.println(method);
+        System.out.println("----- Declared 메서드 -----");
+        for (Method method2 : cls.getDeclaredMethods()) {
+            System.out.println(method2);
         }
     }
 }
