@@ -12,3 +12,4 @@ public class Ex02 {
         Calculator cal2 = (a, b) -> a + b;
     }
 }
+//
