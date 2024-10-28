@@ -89,23 +89,22 @@ public class Utils {
          * 컨트롤러는 공통적으로 run 이라는 메서드가 정의되어 있고 run은 일련의 실행 절차가 정의되어 있다.
          */
         try {
-            // 싱클톤
-            Object obj = BeanContainer.getBean(clazz); // getbean은 무조건 싱글톤.
+            Object obj = BeanContainer.getBean(clazz);
 
-            // [Controller인 경우만 처리]
+            // Controller인 경우만 처리
             if (obj instanceof Controller controller) {
+
 
                 if (model != null) { // 전송 데이터 처리
                     controller.setData(model.getData());
                 }
 
-                //
                 Method method = clazz.getSuperclass().getDeclaredMethod("run");
                 method.invoke(obj);
 
                 return (T) controller;
             }
-        } catch (Exception e) { // 예외에 대한 정보 처리
+        } catch (Exception e) {
             if (e instanceof InvocationTargetException targetException) {
                 Throwable throwable = targetException.getTargetException();
                 if (throwable instanceof CommonException commonException) {
@@ -119,7 +118,6 @@ public class Utils {
         return null;
     }
 
-    // 메세지 오버로드
     public static <T> T loadController(Class<T> clazz) {
         return loadController(clazz, null);
     }
@@ -131,19 +129,18 @@ public class Utils {
      * @param message : 검증 실패시 안내 문구
      * @return
      */
-
-
     public static String getString(String title, String message) {
         Scanner sc = Router.sc;
         while(true) {
             try {
                 System.out.print(title + ": ");
                 String input = sc.nextLine();
-                // 공통적인 부분
                 if (commonInputProcess(input, message)) {
                     break;
                 }
+
                 return input;
+
             } catch (CommonException e) {
                 System.out.println(e.getMessage());
             }
@@ -191,7 +188,6 @@ public class Utils {
      * @return boolean : true인 경우 반복 중단
      */
     private static boolean commonInputProcess(String input, String message) {
-        // 공백이라면 오류 던짐
         if (input == null || input.isBlank()) {
             throw new BadRequestException(message);
         }

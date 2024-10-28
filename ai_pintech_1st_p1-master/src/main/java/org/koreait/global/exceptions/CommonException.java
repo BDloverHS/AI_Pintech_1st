@@ -10,7 +10,6 @@ public class CommonException extends RuntimeException {
 
     private int code; // 예외 코드
 
-    // 생성자 정의(에러 코드와 메세지를 받을 수 있도록)
     public CommonException(String message, int code) {
         super(message);
         this.code = code;

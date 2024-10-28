@@ -1,4 +1,4 @@
-package org.koreait.product.controllers;
+package org.koreait.member.controllers;
 
 import org.koreait.global.BeanContainer;
 import org.koreait.global.Controller;
@@ -6,9 +6,9 @@ import org.koreait.global.Model;
 import org.koreait.global.libs.Utils;
 import org.koreait.global.validators.RequiredValidator;
 import org.koreait.global.validators.TypeValidator;
-import org.koreait.product.entities.Product;
-import org.koreait.product.services.ProductInfoService;
-import org.koreait.product.templates.ProductList;
+import org.koreait.member.entities.Member;
+import org.koreait.member.services.MemberInfoService;
+import org.koreait.member.templates.MemberList;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ import java.util.List;
  *  - 상품목록에서 상품 번호를 입력하면 상품 상세보기로 이동
  *
  */
-public class ProductListController extends Controller implements TypeValidator, RequiredValidator {
-    public ProductListController() {
+public class MemberListController extends Controller implements TypeValidator, RequiredValidator {
+    public MemberListController() {
         setInputProcess(input -> {
             /* 유효성 검사 S */
             if (!check(input)) { // 필수 항목 체크
@@ -33,7 +33,7 @@ public class ProductListController extends Controller implements TypeValidator, 
             /* 유효성 검사 E */
 
             // 선택한 상품 번호와 함께 상품 상세로 이동
-           Utils.loadController(ProductViewController.class, new Model(Long.parseLong(input)));
+           Utils.loadController(MemberViewController.class, new Model(Long.parseLong(input)));
 
 
         });
@@ -46,10 +46,10 @@ public class ProductListController extends Controller implements TypeValidator, 
 
     @Override
     public void view() {
-        ProductInfoService service = BeanContainer.getBean(ProductInfoService.class);
-        List<Product> items = service.getList();
+        MemberInfoService service = BeanContainer.getBean(MemberInfoService.class);
+        List<Member> items = service.getList();
 
         // 템플릿 로드 및 상품 목록 데이터 전송
-        Utils.loadTpl(ProductList.class, new Model(items));
+        Utils.loadTpl(MemberList.class, new Model(items));
     }
 }

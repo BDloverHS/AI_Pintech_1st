@@ -7,7 +7,6 @@ package org.koreait.global.exceptions;
  */
 public class BadRequestException extends CommonException {
     public BadRequestException() {
-        // 기본 문구 고정
         this("잘못된 요청입니다.");
     }
 
