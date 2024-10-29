@@ -41,7 +41,7 @@ public class JoinController extends HttpServlet {
         // hobby로 요청한 값이 여러개더라도 처음 1개만 가져옴
         String hobby = req.getParameter("hobby");
         System.out.printf("email=%s, password=%s, confirmPassword=%s, userName=%s, hobby=%s%n", email, password, confirmPassword, userName, hobby);
-
+        // hobby로 요청한 값이 여러 개라면 모두 가져옴ㅋ
         String[] hobbies = req.getParameterValues("hobby");
         System.out.println(Arrays.toString(hobbies));
     }
