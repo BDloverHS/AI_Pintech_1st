@@ -8,10 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 //
-@WebFilter(value = "/*", initParams = {
+/*@WebFilter(value = "/*", initParams = {
         @WebInitParam(name="k1", value="v1"),
         @WebInitParam(name="k2", value="v2")
-})
+})*/
 public class CommonFilter implements Filter {
 
     @Override
