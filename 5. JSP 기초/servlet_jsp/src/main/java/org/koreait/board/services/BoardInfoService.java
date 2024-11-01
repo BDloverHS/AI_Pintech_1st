@@ -11,9 +11,9 @@ public class BoardInfoService {
         for (int i = 0; i < 10L; i++) {
             Board item = new Board();
             item.setSeq(i+1);
-            item.setPoster("작성자" + i+1);
-            item.setSubject(i+1 + "번째 제목");
-            item.setContent(i+1 + "번째 내용");
+            item.setPoster("작성자" + (i+1));
+            item.setSubject((i+1) + "번째 제목");
+            item.setContent((i+1) + "번째 내용");
             items.add(item);
         }
         return items;
