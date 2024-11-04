@@ -14,5 +14,7 @@ public class Member {
     private LocalDateTime regDt; // 가입일시
     private LocalDateTime modDt; // 수정일시
 
+    private String regDtStr;
+
 
 }
