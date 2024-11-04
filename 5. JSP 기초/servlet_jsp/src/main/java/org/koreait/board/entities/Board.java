@@ -1,9 +1,8 @@
 package org.koreait.board.entities;
 
 import lombok.Data;
-import lombok.Getter;
 
-@Data // Getter + Setter + toString + @EqualsAndHashCode
+@Data // @Getter + @Setter + @toString + @EqualsAndHashCode
 public class Board {
     private long seq; // 게시글 번호
     private String poster; // 작성자
