@@ -21,6 +21,7 @@ public class AppCtx3 {
         return new JoinValidator();
     }
 
+    /*
     @Bean
     @Qualifier("mRepo")
     public MemberRepository memberRepository() {
@@ -32,7 +33,7 @@ public class AppCtx3 {
     public MemberRepository memberRepository2() {
         return new MemberRepository();
     }
-
+    */
     @Bean
     public JoinService joinService() {
         return new JoinService();
