@@ -3,16 +3,18 @@ package exam02;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Map;
 
-public class Ex03 {
+public class Ex05 {
     public static void main(String[] args) throws Exception {
-        try(FileInputStream fis = new FileInputStream("obj1.txt");
+        try(FileInputStream fis = new FileInputStream("obj2.txt");
             ObjectInputStream ois = new ObjectInputStream(fis)) {
 
-            String message = (String)ois.readObject();
-            System.out.println(message);
+            Map<String, Object> data = (Map<String, Object>) ois.readObject();
 
-            Person p1 = (Person)ois.readObject();
+            String message = (String)data.get("message");
+            Person p1 = (Person)data.get("p1");
+            System.out.println(message);
             System.out.println(p1);
 
         } catch (IOException e) {
