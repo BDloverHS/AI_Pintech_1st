@@ -11,7 +11,7 @@ public class Ex04 {
         // 100일 후 - 새로운 객체 반환
         LocalDate after100 = today.plusDays(100L);
 
-        // 100일 전 - 새로운 갹체 반환
+        // 100일 전 - 새로운 객체 반환
         LocalDate before100 = today.minusDays(100L);
 
         System.out.println(today);
