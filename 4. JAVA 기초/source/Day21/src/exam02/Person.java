@@ -1,6 +1,8 @@
 package exam02;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable { // 마커 인터페이스
     private String name;
     private int age;
 
@@ -11,5 +13,13 @@ public class Person {
 
     public void showInfo() {
         System.out.printf("name=%s, age=%s%n", name, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               '}';
     }
 }
