@@ -13,7 +13,7 @@ public class Ex03 {
         int yoil = week.getValue(); // 1(월) ~ 7(일)
         System.out.println(yoil);
 
-        String name = week.getDisplayName(TextStyle.SHORT, Locale.TRADITIONAL_CHINESE);
+        String name = week.getDisplayName(TextStyle.SHORT, Locale.KOREA);
         System.out.println(name);
 
     }
