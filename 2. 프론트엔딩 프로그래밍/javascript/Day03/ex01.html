@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const buttonEl = document.getElementById("button");
+        buttonEl.onclick = function () {
+          alert("클릭");
+        };
+      });
+
+      /*
+        자바스크립트는 함수 값이기 때문에 이벤트에 대입되는 형식이므로
+        주소값이 달라지면서 위 함수는 작동하지 않고 아래 함수만 동작함
+      */
+      buttonEl.onclick = function () {
+        alert("클릭2");
+      };
+    </script>
+  </head>
+  <body>
+    <button type="button" id="button">클릭</button>
+  </body>
+</html>
