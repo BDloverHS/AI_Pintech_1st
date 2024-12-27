@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style>
+      ul::after {
+        content: "AFTER";
+      }
+
+      ul::before {
+        content: "BEFORE";
+        background: orange;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <ul>
+      <li>메뉴1</li>
+      <li>메뉴2</li>
+      <li>메뉴3</li>
+    </ul>
+  </body>
+</html>
