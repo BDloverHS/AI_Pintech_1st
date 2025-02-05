@@ -1,0 +1,19 @@
+// 기존 css로 나타내면 .box-group .box 와 같음(들여쓰기 차이)
+@import './utils.scss';
+.box-group .box {
+  background: $red;
+  @include square(1);
+
+  &.blue {
+    background: $blue; // & : 상위를 의미
+    @include square(2);
+  }
+  &.orange {
+    background: $orange;
+    @include square(3);
+  }
+  &.gray {
+    background: $gray;
+    @include square(4);
+  }
+}

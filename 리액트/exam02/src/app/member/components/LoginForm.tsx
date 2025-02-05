@@ -1,12 +1,13 @@
 'use client'
+import React, { useRef, useEffect } from 'react'
+import styles from './member.module.scss'
 
-import { useRef, useEffect } from 'react'
-const LoginForm = ({ onChange, form, actionState }) => {
+const LoginForm = ({ form, onChange, actionState }) => {
   const [errors, formAction, isPending] = actionState
   const emailEl = useRef<HTMLInputElement | undefined>(undefined)
 
   useEffect(() => {
-    console.log('emailEl', emailEl)
+    //console.log('emailEl', emailEl)
     if (emailEl) {
       emailEl.current?.focus()
     }
@@ -14,19 +15,19 @@ const LoginForm = ({ onChange, form, actionState }) => {
 
   return (
     <>
-      <h1>로그인</h1>
       <form action={formAction}>
-        <dl>
-          <dt>이메일</dt>
+        <dl className={styles.row}>
+          <dt className={styles.title}>이메일</dt>
           <dd>
             <input
+              ref={emailEl}
               type="text"
               name="email"
-              onChange={onChange}
               value={form?.email ?? ''}
+              onChange={onChange}
             />
-            {errors?.email && errors.email.map((m) => <div key={m}>{m}</div>)}
           </dd>
+          {errors?.email && errors?.email.map((m) => <div key={m}>{m}</div>)}
         </dl>
         <dl>
           <dt>비밀번호</dt>
@@ -34,20 +35,20 @@ const LoginForm = ({ onChange, form, actionState }) => {
             <input
               type="password"
               name="password"
-              onChange={onChange}
               value={form?.password ?? ''}
+              onChange={onChange}
             />
-            {errors?.password &&
-              errors.password.map((m) => <div key={m}>{m}</div>)}
           </dd>
+          {errors?.password &&
+            errors?.password.map((m) => <div key={m}>{m}</div>)}
         </dl>
+        <button type="submit" disabled={isPending}>
+          로그인
+        </button>
+        {errors?.global && errors?.global.map((m) => <div key={m}>{m}</div>)}
       </form>
-      <button type="submit" disabled={isPending}>
-        로그인
-      </button>
-      {errors?.global && errors.global.map((m) => <div key={m}>{m}</div>)}
     </>
   )
 }
 
-export default LoginForm
+export default React.memo(LoginForm)

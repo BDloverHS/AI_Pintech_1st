@@ -1,0 +1,10 @@
+$red: red;
+$blue: blue;
+$orange: orange;
+$gray: gray;
+
+@mixin square($Size) {
+  $calculated: 50px * $Size;
+  width: $calculated;
+  height: $calculated;
+}
