@@ -1,10 +1,24 @@
 'use client'
 import styled, { css } from 'styled-components'
 
-export const Button = styled.button`
+const commonStyle = css`
   height: 80px;
+  color: #fff;
+`
+
+export const Button = styled.button`
+  ${commonStyle}
   min-width: 200px;
   border: 0;
   background: ${({ color }) => color ?? 'black'};
-  color: #fff;
+  ${({ border }) =>
+    border &&
+    css`
+      border: 5px solid black;
+      color: orange;
+    `}
+`
+
+export const Button2 = styled.button`
+  ${commonStyle}
 `
